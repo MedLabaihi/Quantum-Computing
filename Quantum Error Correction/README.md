@@ -13,15 +13,15 @@ Each code is designed to correct errors in quantum computations, protecting quan
 
 ### 1. Bit Flip Code
 
-The Bit Flip Code is a quantum error-correcting code designed to correct bit flip errors, which occur when a qubit flips from \( |0\rangle \) to \( |1\rangle \) or vice versa.
+The Bit Flip Code is a quantum error-correcting code designed to correct bit flip errors, which occur when a qubit flips from $\( |0\rangle \)$ to $\( |1\rangle \)$ or vice versa.
 
 #### Encoding
 
-- **Logical Qubit State:** A logical qubit state \( \alpha|0\rangle + \beta|1\rangle \) is encoded into three physical qubits. The encoding creates the state \( \alpha|000\rangle + \beta|111\rangle \). This redundant encoding ensures that if one qubit is flipped, the majority rule can be used to determine the original state.
+- **Logical Qubit State:** A logical qubit state $\( \alpha|0\rangle + \beta|1\rangle \)$ is encoded into three physical qubits. The encoding creates the state $\( \alpha|000\rangle + \beta|111\rangle \)$. This redundant encoding ensures that if one qubit is flipped, the majority rule can be used to determine the original state.
 
 #### Error Detection and Correction
 
-- **Bit Flip Error:** If a single qubit is flipped, the error can be detected by comparing the states of the qubits. For example, if \( |000\rangle \) is encoded and one qubit flips to \( |001\rangle \), the error is detected as the encoded state is no longer in the \( |000\rangle \) or \( |111\rangle \) basis.
+- **Bit Flip Error:** If a single qubit is flipped, the error can be detected by comparing the states of the qubits. For example, if $\( |000\rangle \)$ is encoded and one qubit flips to $\( |001\rangle \)$, the error is detected as the encoded state is no longer in the $\( |000\rangle \)$ or $\( |111\rangle \)$ basis.
 
 - **Correction:** Using majority voting among the qubits allows for the correction of the single-bit flip error. The code compares the qubits and corrects the flipped bit to restore the original logical qubit state.
 
@@ -31,18 +31,23 @@ The Phase Flip Code is designed to correct phase flip errors, which alter the ph
 
 #### Encoding
 
-- **Logical Qubit State:** The logical qubit state \( \alpha|0\rangle + \beta|1\rangle \) is encoded into three physical qubits. The encoding uses a similar approach to the Bit Flip Code, but focuses on protecting against phase flips.
+- **Logical Qubit State:** The logical qubit state $\( \alpha|0\rangle + \beta|1\rangle \)$ is encoded into three physical qubits. The encoding uses a similar approach to the Bit Flip Code, but focuses on protecting against phase flips.
 
 #### Phase Flip Error
 
-- **Error Description:** A phase flip error changes the phase of the \( |1\rangle \) state to \( -|1\rangle \), leaving \( |0\rangle \) unchanged. Mathematically, this is represented by the Z gate:
+- **Error Description:** A phase flip error changes the phase of the $\( |1\rangle \)$ state to $\( -|1\rangle \)$, leaving $\( |0\rangle \)$ unchanged. Mathematically, this is represented by the $Z$ gate:
+
+$$
   \[
   Z|0\rangle = |0\rangle
   \]
+$$
+
+$$
   \[
   Z|1\rangle = -|1\rangle
   \]
-
+$$
 #### Correction
 
 - **Error Detection and Correction:** The code applies Hadamard gates and additional CNOT gates to detect and correct phase flip errors. By transforming the basis states and then applying error correction gates, the code can identify and correct phase flips to restore the logical qubit state.
@@ -53,7 +58,7 @@ The Shor Code is a more robust quantum error correction code that encodes a logi
 
 #### Encoding
 
-- **Logical Qubit State:** The logical qubit state \( \alpha|0\rangle + \beta|1\rangle \) is encoded into nine physical qubits. The encoding process involves first protecting against bit flips and then applying phase flip protection, combining elements of both the Bit Flip and Phase Flip Codes.
+- **Logical Qubit State:** The logical qubit state $\( \alpha|0\rangle + \beta|1\rangle \)$ is encoded into nine physical qubits. The encoding process involves first protecting against bit flips and then applying phase flip protection, combining elements of both the Bit Flip and Phase Flip Codes.
 
 #### Error Detection and Correction
 
